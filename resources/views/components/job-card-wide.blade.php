@@ -17,9 +17,15 @@
         <p class="text-sm text-gray-400 mt-auto">{{ $job->salary }}</p>
     </div>
 
-    <div>
+    <div class="text-center">
         @foreach($job->tags as $tag)
             <x-tag :$tag />
         @endforeach
+        <form action="{{ route('cart.add', $job) }}" method="POST" class="mt-2">
+            @csrf
+            <x-forms.hover type="submit" class="text-white font-bold text-xs my-4 rounded-full">
+                Wishlist Job
+            </x-forms.hover>
+        </form>
     </div>
 </x-panel>

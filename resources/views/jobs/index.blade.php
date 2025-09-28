@@ -8,6 +8,13 @@
             </x-forms.form>
         </section>
 
+        <section>
+            <div class="text-center mt-6 space-y-6">
+                <x-forms.button><a href="/cart">List of Jobs you have Wishlisted</a></x-forms.button>
+            </div>
+
+        </section>
+
         <section class="pt-10">
         <x-section-heading>Featured Jobs</x-section-heading>
 

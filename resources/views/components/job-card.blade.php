@@ -1,7 +1,14 @@
 @props(['job'])
 
 <x-panel class="flex flex-col text-center">
-    <div class="self-start text-sm">{{ $job->employer->name }}</div>
+    <div class="text-sm flex justify-between">{{ $job->employer->name }}
+        <form action="{{ route('cart.add', $job) }}" method="POST" class="mt-2">
+            @csrf
+            <x-forms.hover type="submit" class="text-white font-bold text-xs rounded-full">
+                Wishlist Job
+            </x-forms.hover>
+        </form>
+    </div>
 
     <div class="py-8">
         <h3 class="group-hover:text-blue-800 text-xl font-bold transition-colors duration-300">

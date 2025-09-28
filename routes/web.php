@@ -5,11 +5,10 @@ use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home');
-Route::view('/pdf', 'pdf');
-
 
 Route::get('/jobs', [JobController::class, 'index']);
 
@@ -22,6 +21,13 @@ Route::post('/jobs/import', [JobController::class, 'import'])->name('jobs.import
 
 Route::get('/jobs/create', [JobController::class, 'create'])->middleware('auth');
 Route::post('/jobs', [JobController::class, 'store'])->middleware('auth');
+
+//Cart funkcija
+Route::middleware('auth')->group(function () {
+    Route::post('/cart/add/{job}', [CartController::class, 'add'])->name('cart.add');
+    Route::post('/cart/remove/{job}', [CartController::class, 'remove'])->name('cart.remove');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+});
 
 Route::get('/search', SearchController::class);
 Route::get('/tags/{tag:name}', TagController::class);
