@@ -54,7 +54,7 @@
                             <!-- Field Mapping -->
                             <div class="mt-8">
                                 <h3 class="text-lg font-medium text-gray-700 mb-4">Field Mapping</h3>
-                                <p class="text-gray-600 mb-4">Our system will automatically detect and map your columns to our database fields. You can adjust the mappings below if needed.</p>
+                                <p class="text-gray-600 mb-4">The columns are automatically mapped. You can adjust the mappings below if needed.</p>
                                 
                                 <div class="space-y-4" id="mapping-container"></div>
 
